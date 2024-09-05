@@ -1,0 +1,14 @@
+---
+- name: Copy files
+  hosts: all
+
+  tasks:
+    - name: Copy files from source to destination
+      copy:
+        src: /root/ansible-playbooks/files/myfile.txt
+        dest: /tmp/
+        owner: rajat
+        group: rajat
+        mode: 0777
+        backup: true
+

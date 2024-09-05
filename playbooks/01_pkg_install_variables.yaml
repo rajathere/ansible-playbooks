@@ -1,0 +1,19 @@
+---
+- name: Install and start the service
+  hosts: serverA
+  vars:
+    - apps: [httpd, yum, vim, telnet]
+
+  tasks:
+    - name: Installing services
+      yum:
+        name: "{{ apps }}"
+        state: present
+      tags: i-nginx
+      with_items: "{{ apps }}"
+    - name: Starting the service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+      tags: s-nginx

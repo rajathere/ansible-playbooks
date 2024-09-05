@@ -1,0 +1,12 @@
+---
+- name: Download files
+  hosts: all
+
+  tasks:
+    - name: Download a file on remote server
+      get_url:
+        url: https://www.python.org/ftp/python/3.12.5/Python-3.12.5.tgz
+        dest: /tmp
+        owner: rajat
+        group: rajat
+        mode: 0777

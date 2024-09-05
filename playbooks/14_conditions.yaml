@@ -1,0 +1,16 @@
+---
+- name: Conditionals
+  hosts: all
+
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Ubuntu"

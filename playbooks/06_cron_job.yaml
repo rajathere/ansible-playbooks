@@ -1,0 +1,17 @@
+---
+- name: Cron job
+  hosts: all
+
+  tasks:
+    - name: Add cron job
+      cron:
+        name: Run test script
+        minute: 50
+        hour: 11
+        day: 4
+        month: "*"
+        weekday: "*"
+        user: rajat
+        job: /tmp/script.sh
+        disabled: yes
+

@@ -1,0 +1,17 @@
+---
+- name: Modify cron
+  hosts: all
+
+  tasks:
+    - name: Add env variable
+      cron:
+        name: EXC
+        env: yes
+        user: rajat
+        job: /tmp/new_script.sh
+        insertafter: VAR
+    - name: Remove cron job
+      cron:
+        name: Run test script
+        state: absent
+

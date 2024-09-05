@@ -1,0 +1,6 @@
+---
+- name: Install httpd and enable in firewalld
+  hosts: all
+  roles:
+    - install_httpd
+    - enable_firewalld

@@ -1,0 +1,10 @@
+---
+- name: Remove user
+  hosts: all
+
+  tasks:
+    - name: Remove user
+      user:
+        name: shreya
+        state: absent # remove user
+        remove: yes # Remove home dir and associated files

@@ -1,0 +1,16 @@
+---
+- name: User Management
+  hosts: all
+
+  tasks:
+    - name: Create user
+      user:
+        name: "{{ item }}"
+        comment: new user for Dev team
+        shell: /bin/bash
+          #        group: DEV
+        groups: DEV, shreya
+      loop:
+        - Shreyas
+        - Shreya
+        - Nakul

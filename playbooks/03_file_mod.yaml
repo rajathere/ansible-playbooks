@@ -1,0 +1,20 @@
+---
+- name: File module
+  hosts: all
+
+  tasks:
+  - name: Create a file
+    file:
+      path: /tmp/create_file.txt
+      state: touch
+      owner: rajat
+      group: rajat
+      mode: 0775
+  - name: Create a directory
+    file:
+      path: /tmp/new_folder
+      state: directory
+  - name: Delete a directory
+    file:
+      path: /tmp/new_folder
+      state: absent
